@@ -1,5 +1,1 @@
-language: ruby
-script: true
-rvm:
-  - 2.2.3
-  language: ruby
+
