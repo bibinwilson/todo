@@ -2,3 +2,9 @@ language: ruby
 rvm:
   - 2.2.3
 script: true
+
+deploy:
+  provider: s3
+  access_key_id: "AKIAJE4NOH26PNETY4JA"
+  secret_access_key: "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"
+  bucket: "todo-deploy"
