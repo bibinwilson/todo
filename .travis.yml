@@ -9,8 +9,5 @@ deploy:
   secret_access_key: "gnxIf0oczT5bnL0ja+Rn2ZH2gdyXQVtU/8G/hZKa"
   bucket: "todo-deploy"
 
-deploy:
-  provider: script
-  script: scripts/deploy.sh
-  on:
-  	branch: master
+after_deploy:
+  - ./script/deploy.sh
