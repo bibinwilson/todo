@@ -1,0 +1,77 @@
+
+
+<% if @tasks.count == 0 %>
+
+<a class="waves-effect waves-light btn lighten-2 modal-trigger" href="#modal1"><i class="material-icons right">add</i>Add a Task</a>
+
+<% else%>
+
+<div class="task-info">
+<table class="striped">
+        <thead>
+          <tr>
+              <th data-field="id">Task</th>
+              <th data-field="name">Due Date</th>
+              <th data-field="edit">Status</th>
+          </tr>
+        </thead>
+
+        <tbody>
+        <% @tasks.each do |val| %>
+          <tr>
+            <td><%= val.todo_item %></td>
+            <td><%= val.date %></td>
+            <td><div class="btn-floating btn tooltipped  btn-large waves-effect waves-light red lighten-2" > <%= link_to '<i class="material-icons">done</i>'.html_safe, task_path(:id => val.id), method: :delete, data: { confirm: 'Are you sure?'  } %> </div></td>
+            
+          <div id="task-detail-modal" class="modal bottom-sheet">
+
+          <%= render 'tasks/task_info' %>
+            
+          </div>
+            
+          </tr>
+
+          
+        <% end %>
+          
+        </tbody>
+</table>
+</div>
+
+<% end %>
+
+
+<div id="modal1" class="modal">
+    <div class="modal-content">
+      <div class="row">
+
+<%= render 'tasks/new_task' %>
+
+</div>
+    </div>
+    
+  </div>
+
+
+
+
+  <script type="text/javascript">
+
+  $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+  });
+
+  $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15 // Creates a dropdown of 15 years to control year
+  });
+      
+  </script>
+  <style type="text/css">
+.center-btn { text-align: center }
+.task-info {
+  margin-top: 2% !important;
+}
+
+  </style>

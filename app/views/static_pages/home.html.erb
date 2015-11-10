@@ -1,0 +1,40 @@
+<div class="home-body">
+<% if signed_in? %>
+  <div class="section no-pad-bot" id="index-banner">
+        <div class="container">
+          <div class="row center">
+            <h4 class="header col s12 light center">A modern ToDo Application</h4>
+          </div>
+          <div class="row center">
+            <a href="" id="download-button" class="btn-large waves-effect waves-light">Get Started</a>
+          </div>
+          
+       
+      </div>
+<% else %>
+  <div class="center hero-unit">
+    <h1>One Stop Solution for To Do List</h1>
+
+    <h2>
+      Never Miss an Assigned task
+    </h2>
+
+    <%= link_to "Sign up now!", signup_path,
+                                class: "btn btn-large btn-primary" %>
+  </div>
+
+<% end %>
+</div>
+
+<script type="text/javascript">
+$(window).scroll(function(){
+    //$(".posting_post").css("top",Math.max(0,0-$(this).scrollTop()));
+});
+</script>
+<style type="text/css">
+  .home-body {
+    height: 1000px;
+  }
+
+
+</style>
